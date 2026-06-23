@@ -1,0 +1,45 @@
+# Currency Converter (Python + Tkinter)
+
+## Overview
+This project is a simple **Currency Converter** application built using Python and Tkinter for the graphical user interface (GUI).  
+It uses the **currencyconverter** library to fetch real-time exchange rates and convert amounts between different currencies.
+
+---
+
+## Features
+- Converts any amount from one currency to another (e.g., USD → INR).
+- Simple and clean GUI built with Tkinter.
+- Error handling for invalid inputs or missing currency codes.
+- Displays conversion results directly in the window.
+
+---
+
+## Output Preview
+The application window looks like this:
+
+**Currency Converter GUI**
+- Title: *Currency Converter*
+- Input fields:
+  - **Enter amount here:** (numeric value)
+  - **Enter your currency here:** (e.g., USD)
+  - **Your Desired currency:** (e.g., INR)
+- Button: **click**
+- Displays the converted amount or error message below the button.
+
+---
+
+## How It Works
+1. The program imports:
+   - `CurrencyConverter` from the `currency_converter` module.
+   - `tkinter` for GUI creation.
+2. When the user clicks the **click** button:
+   - It reads the amount and currency codes from the input fields.
+   - Calls `c.convert(amount, currency1, currency2)` to perform conversion.
+   - Displays the result or an error message on the window.
+
+---
+
+## 🛠️ Requirements
+Make sure you have Python 3.13 (or compatible) and install dependencies:
+
+
