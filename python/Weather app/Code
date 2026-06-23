@@ -1,0 +1,59 @@
+from currency_converter import CurrencyConverter
+import tkinter as tk
+
+c = CurrencyConverter()
+print(c.convert(12, 'USD', 'INR'))
+
+window = tk.Tk()
+window.geometry("500x360")
+window.title("Currency Converter")
+
+def clicked():
+    try:
+        amt_text = entry1.get().strip().replace("$", "").replace(",", "")
+        if amt_text == "":
+            raise ValueError("Please enter amount")
+
+        amount = float(amt_text)
+
+        currency1 = entry2.get().strip().upper()
+        currency2 = entry3.get().strip().upper()
+
+        if currency1 == "" or currency2 == "":
+            raise ValueError("Please enter both currency codes (ex: USD, INR)")
+
+        data = c.convert(amount, currency1, currency2)
+
+        label4 = tk.Label(window, text=data, font="cabril 16 bold")
+        label4.place(x=200, y=300)
+
+    except Exception as e:
+        label4 = tk.Label(window, text=str(e), font="cabril 12 bold")
+        label4.place(x=60, y=300)
+
+
+label = tk.Label(window, text="Currency Converter", font="cabril 20 bold")
+label.place(x=120, y=40)
+
+label1 = tk.Label(window, text="Enter amount here:", font="cabril 16 bold")
+label1.place(x=30, y=100)
+
+entry1 = tk.Entry(window)
+entry1.place(x=270, y=105)
+
+label2 = tk.Label(window, text="Enter your currency here:", font="cabril 16 bold")
+label2.place(x=10, y=150)
+
+entry2 = tk.Entry(window)
+entry2.place(x=270, y=155)
+
+label3 = tk.Label(window, text="Your Desired currency:", font="cabril 16 bold")
+label3.place(x=10, y=200)
+
+entry3 = tk.Entry(window)
+entry3.place(x=270, y=205)
+
+button = tk.Button(window, text="click", font="cabril 16 bold", command=clicked)
+button.place(x=220, y=250)
+
+window.mainloop()
